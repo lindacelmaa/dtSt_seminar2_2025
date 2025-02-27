@@ -43,4 +43,28 @@ public class MyLInkedList<Ttype>{
 			}
 		}
 	}
+	
+	public void print() throws Exception{
+		if(isEmpty()) {
+			throw new Exception("List is empty");
+		}
+		
+		MyNode currentNode = firstNode;
+		
+		while(currentNode != null) {
+			System.out.print(currentNode.getElement() + " ");
+			currentNode = currentNode.getNext();
+		}
+		
+	}
 }
+
+
+
+
+
+
+
+
+
+
