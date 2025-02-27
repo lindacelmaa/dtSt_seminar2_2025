@@ -55,7 +55,43 @@ public class MyLInkedList<Ttype>{
 			System.out.print(currentNode.getElement() + " ");
 			currentNode = currentNode.getNext();
 		}
+		System.out.println("");
+	}
+	
+	public void add_index(Ttype element, int position) throws Exception{
+		if(element == null) {
+			throw new NullPointerException("Elementa v'ert'iba nevar b'ut null");
+		}
 		
+		if(position == 1) {
+			MyNode newNode = new MyNode(element);
+			newNode.setNext(firstNode);
+			firstNode.setPrevious(newNode);
+			firstNode = newNode;
+			counter++;
+		} else if (position == counter + 1) {
+			add(element);
+		} else if(position > 1 && position <= counter ) {
+			MyNode currentNode = firstNode;
+			
+			for(int i = 0; i < position; i++) {
+				currentNode = currentNode.getNext();
+			}
+			MyNode currentNodePrevious = currentNode.getPrevious();
+			
+			MyNode newNode = new MyNode(element);
+			newNode.setNext(currentNode);
+			currentNode.setPrevious(newNode);
+			
+			currentNodePrevious.setNext(newNode);
+			newNode.setPrevious(currentNodePrevious);
+				
+			counter++;
+			
+			
+		}else {
+			throw new Exception("The position is not accepted");
+		}
 	}
 }
 

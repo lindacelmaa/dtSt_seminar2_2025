@@ -15,6 +15,10 @@ public class MyService {
 		
 		try {
 			linkedListForInt.print();
+			linkedListForInt.add_index(-222, 1);
+			linkedListForInt.print();
+			linkedListForInt.add_index(-222, 6);
+			linkedListForInt.print();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
