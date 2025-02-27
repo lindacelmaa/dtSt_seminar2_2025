@@ -1,6 +1,6 @@
 package datastr;
 
-public class MyLInkedList {
+public class MyLInkedList<Ttype>{
 	private MyNode firstNode = null;
 	private MyNode lastNode = null;
 	private int counter = 0;
@@ -20,6 +20,27 @@ public class MyLInkedList {
 		}
 		catch (OutOfMemoryError e) {
 			return true;
+		}
+	}
+	
+	public void add(Ttype element) throws NullPointerException{
+		if(element == null) {
+			throw new NullPointerException("Elementa v'ert'iba nevar b'ut null");
+		}
+		if(!isFull()) {
+			if(isEmpty()) {
+				MyNode newNode = new MyNode(element);
+				lastNode = newNode;
+				firstNode = newNode;
+				counter++;
+			}
+			else {
+				MyNode newNode = new MyNode(element);
+				newNode.setPrevious(lastNode);
+				lastNode.setNext(newNode);
+				lastNode = newNode;
+				counter++;
+			}
 		}
 	}
 }
