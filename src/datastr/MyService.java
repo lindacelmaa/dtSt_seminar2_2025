@@ -19,6 +19,10 @@ public class MyService {
 			linkedListForInt.print();
 			linkedListForInt.add_index(-222, 6);
 			linkedListForInt.print();
+			linkedListForInt.remove(6);
+			linkedListForInt.print();
+			linkedListForInt.remove(1);
+			linkedListForInt.print();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

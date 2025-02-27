@@ -92,6 +92,38 @@ public class MyLInkedList<Ttype>{
 		}else {
 			throw new Exception("The position is not accepted");
 		}
+		
+	}
+	public void remove(int position) throws Exception{
+		if (position < 0 || position > counter) {
+			throw new Exception("The index is not accepted");
+		}
+		if(position == 1) {
+			firstNode = firstNode.getNext();
+			firstNode.setPrevious(null);
+			System.gc();
+			counter --;
+			
+		}else if(position == counter) {
+			lastNode = lastNode.getPrevious();
+			lastNode.setNext(null);
+			System.gc();
+			counter--;
+		}else {
+			MyNode currentNode = firstNode;
+			for(int i = 0; i < position-1; i++) {
+				currentNode = currentNode.getPrevious();
+			}
+			MyNode currentNodeNext = currentNode.getNext();
+			MyNode currentNodePrevious = currentNode.getPrevious();
+			
+			currentNodeNext.setPrevious(currentNodePrevious);
+			currentNodePrevious.setNext(currentNodeNext);
+			
+			currentNode = null;
+			System.gc();
+			counter--;
+;		}
 	}
 }
 
