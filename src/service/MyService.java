@@ -30,7 +30,13 @@ public class MyService {
 			linkedListForInt.print();
 			
 			System.out.println(linkedListForInt.retrieveElementByOrderNumber(2));
-			System.out.println(Arrays.toString(linkedListForInt.searchForElement(-200)));
+			//System.out.println(Arrays.toString(linkedListForInt.searchForElement(-200)));
+			MyLInkedList<Integer> getPositionsForElement = linkedListForInt.searchForElement(-200);
+			getPositionsForElement.print();
+			linkedListForInt.makeEmpty();
+			linkedListForInt.add(300);
+			linkedListForInt.print();
+		
 			
 			
 		} catch (Exception e) {

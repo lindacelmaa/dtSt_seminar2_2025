@@ -147,41 +147,37 @@ public class MyLInkedList<Ttype>{
 	}
 	
 	// Jaatgrie'z elementa kartas numurs konkretam elementam
-	public int[] searchForElement(Ttype element) throws Exception{
-		if(element == null) {
+	public MyLInkedList<Integer> searchForElement(Ttype element) throws Exception{
+		if(isEmpty()) {
 			throw new Exception("Number cannot be empty");
 		}
 		
+		
+		MyLInkedList<Integer> positions = new MyLInkedList<Integer>();
+		
 		MyNode currentNode = firstNode;
-		
-			
-		int howManyElements = 0;
-		
-		while(currentNode != null) {
-			
-			if(currentNode.getElement().equals(element)){
-				howManyElements++;
-			}
-			
-			currentNode = currentNode.getNext();
-		}
-	
-		int[] positions = new int[howManyElements];
-		int positionCounter = 0;
-		
-		currentNode = firstNode;
 		
 		for(int i = 1; i <=counter; i++) {
 			if(currentNode.getElement().equals(element)) {
-				positions[positionCounter] = i;
-				positionCounter++;
+				positions.add(i);
 			}
-			
 			currentNode = currentNode.getNext();
 		}
 		
+		
 		return positions;
 	}
+	
+	public void makeEmpty() {
+		if(!isEmpty()) {
+			firstNode = null;
+			lastNode = null;
+			counter = 0;
+			System.gc();
+		}
+	}
+	
+	
 }
 
 
