@@ -125,6 +125,65 @@ public class MyLInkedList<Ttype>{
 			counter--;
 ;		}
 	}
+	
+	//TODO funkcijas, samekl'e no konkr'et'as pozicijas elementu un to atgriez
+	public Ttype retrieveElementByOrderNumber (int orderNumber) throws Exception{
+		
+		if (isEmpty()) {
+			throw new Exception("Node cannot be empty!");
+		}
+		if(orderNumber <= 0 || orderNumber > counter) {
+			throw new Exception("Element number cannot be <= 0!");
+		}
+		
+		MyNode currentNode = firstNode;
+		
+		for(int i = 1; i <= orderNumber - 1; i++) {
+			currentNode = currentNode.getNext();
+		}
+		
+		return (Ttype) currentNode.getElement();
+			
+	}
+	
+	// Jaatgrie'z elementa kartas numurs konkretam elementam
+	public int[] searchForElement(Ttype element) throws Exception{
+		if(element == null) {
+			throw new Exception("Number cannot be empty");
+		}
+		
+		MyNode currentNode = firstNode;
+		
+			
+		int howManyElements = 0;
+		
+		while(currentNode != null) {
+			
+			if(currentNode.getElement().equals(element)){
+				howManyElements++;
+			}
+			
+			currentNode = currentNode.getNext();
+		}
+	
+		int[] positions = new int[howManyElements];
+		int positionCounter = 0;
+		
+		currentNode = firstNode;
+		
+		for(int i = 1; i <=counter; i++) {
+			if(currentNode.getElement().equals(element)) {
+				positions[positionCounter] = i;
+				positionCounter++;
+			}
+			
+			currentNode = currentNode.getNext();
+		}
+		
+		
+		
+		return positions;
+	}
 }
 
 
