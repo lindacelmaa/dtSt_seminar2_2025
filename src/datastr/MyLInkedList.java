@@ -180,8 +180,6 @@ public class MyLInkedList<Ttype>{
 			currentNode = currentNode.getNext();
 		}
 		
-		
-		
 		return positions;
 	}
 }
